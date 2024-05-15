@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="container mt-2 text-center">
+  <h2> Producto</h2>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control"  id="title" placeholder="Title" formControlName="title">
+      <label>Title</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control"  id="description" placeholder="Description" formControlName="description">
+      <label>Description</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control"  id="handle" placeholder="handle" formControlName="handle">
+      <label>Handle</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control"  id="sku" placeholder="sku" formControlName="sku">
+      <label>SKU</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="number" class="form-control"  id="grams" placeholder="grams" formControlName="grams">
+      <label>Grams</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="number" class="form-control"  id="stock" placeholder="stock" formControlName="stock">
+      <label>Stock</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="number" class="form-control"  id="price" placeholder="price" formControlName="price">
+      <label>Price</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="number" class="form-control"  id="comparePrice" placeholder="comparePrice" formControlName="comparePrice">
+      <label>Compare price</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control"  id="barcode" placeholder="barcode" formControlName="barcode">
+      <label>Barcode</label>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg m-1" (click)="regresar()">Regresar</button>
+    <button type="submit" class="btn btn-primary btn-lg m-1">Guardar</button>
+    
+  </form>
+</div>
+

@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100% !important;
+}
+
+
+.list {
+  max-height: var(--container-height);
+  border: 2px solid #37392e;
+  border-radius: 5px;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-timeline: --listTimeline block;
+}
+
+.list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  padding: 0px;
+  border-top: 1px solid #ccc;
+  scroll-snap-align: start;
+}
+
+.list li:first-child {
+  border: 0;
+}
+
+
