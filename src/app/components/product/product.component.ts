@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductComponent implements OnInit{
 
   myForm: FormGroup;
+  loading: boolean = false;
 
   message: string = "";
 
@@ -59,7 +60,7 @@ export class ProductComponent implements OnInit{
   }
 
   onSubmit(): void {
-    console.log('form', this.myForm.value);
+    this.loading = true;
     const that = this
     if (this.myForm.valid) {
       const objeto : ProductUpdate = {
@@ -73,8 +74,6 @@ export class ProductComponent implements OnInit{
         comparePrice: this.myForm.get('comparePrice')?.value,
         barcode: this.myForm.get('barcode')?.value,
       }
-
-      console.log('objeto', objeto);
     
       if(this.idProduct == 0){
         this.productService.createProduct(objeto).subscribe({
@@ -85,9 +84,11 @@ export class ProductComponent implements OnInit{
             }else{
               this.toastr.error(data.message, "Error")
             }
+            this.loading = false;
           },
           error:(err) =>{
             this.toastr.error(err.message, "Error")
+            this.loading = false;
           }
         })
       }else{
@@ -99,14 +100,17 @@ export class ProductComponent implements OnInit{
             }else{
               this.toastr.error(data.message, "Error")
             }
+            this.loading = false;
           },
           error:(err) =>{
             this.toastr.error(err.message, "Error")
+            this.loading = false;
           }
         })
       }
     } else {
       this.toastr.error("Formulario incompleto", "Error")
+      this.loading = false;
     }
   }
 

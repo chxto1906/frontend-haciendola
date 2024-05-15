@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container mt-2 text-center">
   <h2> Producto</h2>
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+  <form *ngIf="!loading" [formGroup]="myForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
     <div class="form-floating mb-3 mt-3">
       <input type="text" class="form-control"  id="title" placeholder="Title" formControlName="title">
       <label>Title</label>
@@ -42,5 +42,6 @@
     <button type="submit" class="btn btn-primary btn-lg m-1">Guardar</button>
     
   </form>
+  <app-spinner *ngIf="loading"></app-spinner>
 </div>
 
